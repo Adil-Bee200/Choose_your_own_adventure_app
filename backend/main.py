@@ -2,6 +2,9 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from core.config import settings
 from routers import job, story
+from db.databases import create_tables
+
+create_tables()
 
 app = FastAPI(
     title= "Choose your own adventure API",

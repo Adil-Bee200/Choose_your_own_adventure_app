@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, DateTime
 from sqlalchemy.sql import func
 
-from backend.db.databases import base
+from db.databases import base
 
 ## StoryJob represents status of a story being made (LLM will take time to acctually make the story)
 class StoryJob(base):

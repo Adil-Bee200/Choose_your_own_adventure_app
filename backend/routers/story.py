@@ -4,14 +4,14 @@ from datetime import datetime
 from fastapi import APIRouter, Depends, HTTPException, Cookie, Response, BackgroundTasks, status
 from sqlalchemy.orm import Session
 
-from backend.db.databases import get_db, SessionLocal
-from backend.models.story import Story, StoryNode
-from backend.models.job import StoryJob
-from backend.schemas.story import CompleteStoryNodeResponse, CompleteStoryResponse, CreateStoryRequest
-from backend.schemas.jobs import StoryJobResponse, StoryJobCreate
+from db.databases import get_db, SessionLocal
+from models.story import Story, StoryNode
+from models.job import StoryJob
+from schemas.story import CompleteStoryNodeResponse, CompleteStoryResponse, CreateStoryRequest
+from schemas.jobs import StoryJobResponse, StoryJobCreate
 
 router = APIRouter(
-    prefix="/stories"
+    prefix="/stories",
     tags=["stories"]
 )
 

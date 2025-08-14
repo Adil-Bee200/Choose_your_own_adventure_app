@@ -1,14 +1,14 @@
 from sqlalchemy import Column, String, Integer, DateTime, Boolean, ForeignKey, JSON
 from sqlalchemy.sql import func 
 from sqlalchemy.orm import relationship
-from backend.db.databases import base
+from db.databases import base
 
 ## Contains metadata about the overall story
 class Story(base):
     __tablename__ = "stories"
-    id = Column(Integer, primary_key=True, Index= True)
-    title = Column(String, Index=True)
-    session_id = Column(String, Index= True)
+    id = Column(Integer, primary_key=True, index= True)
+    title = Column(String, index=True)
+    session_id = Column(String, index= True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     
     nodes = relationship("StoryNode", back_populates="story")  ## one to many relationship (one story connected to many nodes)
@@ -26,5 +26,5 @@ class StoryNode(base):
     is_winning_ending = Column(Boolean, default=False)
     options = Column(JSON, default=list)
 
-    story = relationship("Story", "nodes")
+    story = relationship("Story", back_populates= "nodes")
 
